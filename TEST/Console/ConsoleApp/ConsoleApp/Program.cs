@@ -21,7 +21,8 @@ namespace ConsoleApp
             rssList.fillByRss(rssHabr.Result.Items);
             rssList.fillByRss(rssInterfax.Result.Items);
 
-            using (DataContext db = new DataContext(@"data source=(localdb)\MSSQLLocalDB;initial catalog=TestDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
+            //путь к бд нужно менять, '..\..\..\..\' не сработало
+            using (DataContext db = new DataContext(@"data source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Artyom\Test\TEST\TestDB.mdf;initial catalog=TestDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
             {
                 string result = "";
                 ConsoleColor color = ConsoleColor.White;

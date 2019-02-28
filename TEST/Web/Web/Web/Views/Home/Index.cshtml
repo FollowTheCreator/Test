@@ -1,28 +1,30 @@
 ﻿@model Web.Models.indexViewModel
 <style>
-    img{
-        max-width:400px;
+    img {
+        max-width: 400px;
     }
 </style>
 <h1>Новостная лента</h1>
 
-<div class="form-group">
-    <label for="sel1">Источник ленты</label>
-    <select class="form-control" id="sel1">
-        <option>Все</option>
-        <option>Habr.com</option>
-        <option>Interfax.by</option>
-    </select>
-</div>
+<form method="post" action="">
+    <div class="form-group">
+        <label for="sel1">Источник ленты</label>
+        <select class="form-control" name="source">
+            <option value="%">Все</option>
+            <option value="Habr.com">Habr.com</option>
+            <option value="Interfax.by">Interfax.by</option>
+        </select>
+    </div>
 
-<label class="radio-inline"><input type="radio" name="optradio" checked>Сортировать по дате</label>
-<label class="radio-inline"><input type="radio" name="optradio">Сортировать по источнику</label>
-<br/>
+    <label class="radio-inline"><input type="radio" name="sort" value="date" checked>Сортировать по дате</label>
+    <label class="radio-inline"><input type="radio" name="sort" value="source">Сортировать по источнику</label>
+    <br />
 
-<button type="button" class="btn btn-default">Просмотреть</button>
+    <input value="Просмотреть" type="submit" class="btn btn-default"></input>
+</form>
 
-<div class="table-responsive">
-    <table class="table">
+    <div class="table-responsive">
+        <table class="table">
             <tr>
                 <th>Источник</th>
                 <th>Название новости</th>
@@ -38,10 +40,10 @@
                     <td>@item.date</td>
                 </tr>
             }
-    </table>
-</div>
-<br/>
+        </table>
+    </div>
+    <br />
 
-<div class="btn-group">
-    @Html.pageLinks(Model.pageInfo, x => Url.Action("Index", new { page = x }))
-</div>
+    <div class="btn-group">
+        @Html.pageLinks(Model.pageInfo, x => Url.Action("Index", new { page = x }))
+    </div>
