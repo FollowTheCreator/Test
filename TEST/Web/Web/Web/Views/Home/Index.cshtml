@@ -1,0 +1,47 @@
+﻿@model Web.Models.indexViewModel
+<style>
+    img{
+        max-width:400px;
+    }
+</style>
+<h1>Новостная лента</h1>
+
+<div class="form-group">
+    <label for="sel1">Источник ленты</label>
+    <select class="form-control" id="sel1">
+        <option>Все</option>
+        <option>Habr.com</option>
+        <option>Interfax.by</option>
+    </select>
+</div>
+
+<label class="radio-inline"><input type="radio" name="optradio" checked>Сортировать по дате</label>
+<label class="radio-inline"><input type="radio" name="optradio">Сортировать по источнику</label>
+<br/>
+
+<button type="button" class="btn btn-default">Просмотреть</button>
+
+<div class="table-responsive">
+    <table class="table">
+            <tr>
+                <th>Источник</th>
+                <th>Название новости</th>
+                <th>Описание новости</th>
+                <th>Дата публикации</th>
+            </tr>
+            @foreach (var item in Model.rssList)
+            {
+                <tr>
+                    <td>@item.source</td>
+                    <td><a href="@item.link" target="_blank">@Html.Raw(item.title)</a></td>
+                    <td>@Html.Raw(item.description)</td>
+                    <td>@item.date</td>
+                </tr>
+            }
+    </table>
+</div>
+<br/>
+
+<div class="btn-group">
+    @Html.pageLinks(Model.pageInfo, x => Url.Action("Index", new { page = x }))
+</div>

@@ -1,0 +1,17 @@
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\ConsoleApp.exe.config
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\ConsoleApp.exe
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\ConsoleApp.pdb
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\CodeHollow.FeedReader.dll
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\HtmlAgilityPack.dll
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\HtmlAgilityPack.pdb
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\HtmlAgilityPack.xml
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csprojAssemblyReference.cache
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.csproj.CopyComplete
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.exe
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\obj\Debug\ConsoleApp.pdb
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\EntityFramework.dll
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\EntityFramework.xml
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\data\TEST\Console\ConsoleApp\ConsoleApp\bin\Debug\ru\EntityFramework.resources.dll
