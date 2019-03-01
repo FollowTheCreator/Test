@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Ajax;
 using Web.Models;
 
 public static class links
-{
+{/*
     public static MvcHtmlString pageLinks(this HtmlHelper html,
     pageInfo pageInfo, Func<int, string> pageUrl)
     {
@@ -26,5 +27,5 @@ public static class links
             result.Append(tag.ToString());
         }
         return MvcHtmlString.Create(result.ToString());
-    }
+    }*/
 }

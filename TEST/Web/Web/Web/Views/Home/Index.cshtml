@@ -15,45 +15,49 @@
     <div class="form-group">
         <label for="sel1">Источник ленты</label>
         <select class="form-control" name="source">
-            <option value="%">Все</option>
-            <option value="Habr.com">Habr.com</option>
-            <option value="Interfax.by">Interfax.by</option>
+            <option @if (ViewBag.source == "%") { new HtmlString("selected"); } value="%">Все</option>
+            <option @if (ViewBag.source == "Habr.com") { new HtmlString("selected"); } value="Habr.com">Habr.com</option>
+            <option @if (ViewBag.source == "Interfax.com") { new HtmlString("selected"); } value="Interfax.by">Interfax.by</option>
         </select>
     </div>
 
-    <label class="radio-inline"><input type="radio" name="sort" value="date" checked>Сортировать по дате</label>
-    <label class="radio-inline"><input type="radio" name="sort" value="source">Сортировать по источнику</label>
+    <label class="radio-inline"><input type="radio" name="sort" value="date" @if (ViewBag.sort == "date") { new HtmlString("checked"); }>Сортировать по дате</label>
+    <label class="radio-inline"><input type="radio" name="sort" value="source" @if (ViewBag.sort == "source") { new HtmlString("checked"); }>Сортировать по источнику</label>
     <br />
 
     <input value="Просмотреть" type="submit" class="btn btn-default"></input>
 }
 
-    <div id="targetDiv">
-        <table class="table">
+<div id="targetDiv">
+    <table class="table">
+        <tr>
+            <th>Источник</th>
+            <th>Название новости</th>
+            <th>Описание новости</th>
+            <th>Дата публикации</th>
+        </tr>
+        @foreach (var item in Model.rssList)
+        {
             <tr>
-                <th>Источник</th>
-                <th>Название новости</th>
-                <th>Описание новости</th>
-                <th>Дата публикации</th>
+                <td>@item.source</td>
+                <td><a href="@item.link" target="_blank">@Html.Raw(item.title)</a></td>
+                <td>@Html.Raw(item.description)</td>
+                <td>@item.date</td>
             </tr>
-            @foreach (var item in Model.rssList)
+        }
+    </table>
+
+    <br />
+
+    <div class="container">
+        <div class="btn-group">
+            @for (int i = 0; i < Model.pageInfo.totalPages; i++)
             {
-                <tr>
-                    <td>@item.source</td>
-                    <td><a href="@item.link" target="_blank">@Html.Raw(item.title)</a></td>
-                    <td>@Html.Raw(item.description)</td>
-                    <td>@item.date</td>
-                </tr>
+                @Ajax.ActionLink(Convert.ToString(i + 1), "ajaxPageLinks", new { page = (i + 1), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" })
             }
-        </table>
-
-        <br />
-
-        <div class="container">
-            <div class="btn-group">
-                @Html.pageLinks(Model.pageInfo, x => Url.Action("ajaxPageLinks", new { page = x }))
-            </div>
+            <!--Html.pageLinks(Model.pageInfo, x => Url.Action("index", new { page = x, source = ViewBag.source, sort = ViewBag.sort }))-->
         </div>
     </div>
+</div>
 @Scripts.Render("~/scripts/jquery-3.3.1.min.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

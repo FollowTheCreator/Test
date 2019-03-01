@@ -26,10 +26,11 @@ namespace Web.Controllers
 
             pageInfo pageInfo = new pageInfo { pageNumber = page, pageSize = pageSize, totalItems = count };
             indexViewModel ivm = new indexViewModel { pageInfo = pageInfo, rssList = currentNews };
+            ViewBag.source = source;
+            ViewBag.sort = sort;
             return View(ivm);
         }
 
-        [HttpPost]
         public ActionResult ajaxPageLinks(int page = 1, string source = "%", string sort = "date")
         {
             int count = (from item in db.GetTable<rss>()
@@ -42,6 +43,8 @@ namespace Web.Controllers
 
             pageInfo pageInfo = new pageInfo { pageNumber = page, pageSize = pageSize, totalItems = count };
             indexViewModel ivm = new indexViewModel { pageInfo = pageInfo, rssList = currentNews };
+            ViewBag.source = source;
+            ViewBag.sort = sort;
             return PartialView(ivm);
         }
 
