@@ -1,0 +1,29 @@
+﻿@model Web.Models.indexViewModel
+
+<div id="showRss">
+    <table class="table">
+        <tr>
+            <th>Источник</th>
+            <th>Название новости</th>
+            <th>Описание новости</th>
+            <th>Дата публикации</th>
+        </tr>
+        @foreach (var item in Model.rssList)
+        {
+            <tr>
+                <td>@item.source</td>
+                <td><a href="@item.link" target="_blank">@Html.Raw(item.title)</a></td>
+                <td>@Html.Raw(item.description)</td>
+                <td>@item.date</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="btn-group">
+        @Html.pageLinks(Model.pageInfo, x => Url.Action("Index", new { page = x }))
+    </div>
+</div>

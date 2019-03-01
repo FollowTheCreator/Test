@@ -3,10 +3,15 @@
     img {
         max-width: 400px;
     }
+
+    .allcontainer {
+        padding: 5px;
+    }
 </style>
 <h1>Новостная лента</h1>
 
-<form method="post" action="">
+@using (Ajax.BeginForm("ajaxPageLinks", new AjaxOptions { UpdateTargetId = "targetDiv" }))
+{
     <div class="form-group">
         <label for="sel1">Источник ленты</label>
         <select class="form-control" name="source">
@@ -21,9 +26,9 @@
     <br />
 
     <input value="Просмотреть" type="submit" class="btn btn-default"></input>
-</form>
+}
 
-    <div class="table-responsive">
+    <div id="targetDiv">
         <table class="table">
             <tr>
                 <th>Источник</th>
@@ -41,9 +46,14 @@
                 </tr>
             }
         </table>
-    </div>
-    <br />
 
-    <div class="btn-group">
-        @Html.pageLinks(Model.pageInfo, x => Url.Action("Index", new { page = x }))
+        <br />
+
+        <div class="container">
+            <div class="btn-group">
+                @Html.pageLinks(Model.pageInfo, x => Url.Action("ajaxPageLinks", new { page = x }))
+            </div>
+        </div>
     </div>
+@Scripts.Render("~/scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
