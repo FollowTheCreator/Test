@@ -30,8 +30,5 @@ namespace ConsoleApp
 
         [Column]
         public int? views { get; set; }
-
-        [Column]
-        public int? saves { get; set; }
     }
 }

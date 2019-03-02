@@ -21,7 +21,7 @@ namespace ConsoleApp
             list.Add(item);
         }
 
-        public void fillByRss(ICollection<FeedItem> rssItems)
+        public void fillByRss(ICollection<FeedItem> rssItems, string rssSource)
         {
             foreach (var item in rssItems)
             {
@@ -31,9 +31,8 @@ namespace ConsoleApp
                     date = (DateTime)item.PublishingDate,
                     description = item.Description,
                     link = item.Link,
-                    source = "Habr.com",
-                    views = 0,
-                    saves = 0
+                    source = rssSource,
+                    views = 1
                 });
             }
         }

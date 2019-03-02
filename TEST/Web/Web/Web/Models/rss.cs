@@ -27,8 +27,5 @@ namespace Web
 
         [Column]
         public int? views { get; set; }
-
-        [Column]
-        public int? saves { get; set; }
     }
 }

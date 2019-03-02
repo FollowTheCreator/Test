@@ -11,7 +11,6 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        //путь к бд нужно менять, '..\..\..\..\' не сработало
         DataContext db = new DataContext(@"data source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Artyom\Test\TEST\TestDB.mdf;initial catalog=TestDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework");
 
         public ActionResult Index(int page = 1, string source = "%", string sort = "date")

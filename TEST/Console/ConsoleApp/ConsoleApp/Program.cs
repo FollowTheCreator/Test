@@ -18,51 +18,48 @@ namespace ConsoleApp
             rssInterfax.ConfigureAwait(false);
 
             rssList rssList = new rssList();
-            rssList.fillByRss(rssHabr.Result.Items);
-            rssList.fillByRss(rssInterfax.Result.Items);
+            rssList.fillByRss(rssHabr.Result.Items, "Habr.com");
+            rssList.fillByRss(rssInterfax.Result.Items, "Interfax.by");
 
-            //путь к бд нужно менять, '..\..\..\..\' не сработало
             using (DataContext db = new DataContext(@"data source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Artyom\Test\TEST\TestDB.mdf;initial catalog=TestDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"))
             {
                 string result = "";
                 ConsoleColor color = ConsoleColor.White;
                 foreach (rss item in rssList.GetList())
                 {
-                    try
+                    IQueryable<rss> existingRow = from row in db.GetTable<rss>()
+                                                  where ((row.date == item.date) && (row.title == item.title))
+                                                  select row;
+                    if(existingRow.Count() == 0)
                     {
                         db.GetTable<rss>().InsertOnSubmit(item);
                         db.SubmitChanges();
                         color = ConsoleColor.Green;
                         result = " добавлен";
                     }
-                    catch(Exception e)
+                    else
                     {
-                        db.GetTable<rss>().DeleteOnSubmit(item);
+                        existingRow.First().views++;
                         db.SubmitChanges();
                         color = ConsoleColor.DarkRed;
                         result = " уже существует";
                     }
-                    finally
-                    {
-                        Console.Write($"{item.source} : {item.title} : {item.date}");
-                        Console.ForegroundColor = color;
-                        Console.WriteLine(result);
-                        Console.ResetColor();
-                    }
+                    Console.Write($"{item.source} : {item.title} : {item.date}");
+                    Console.ForegroundColor = color;
+                    Console.WriteLine(result);
+                    Console.ResetColor();
                 }
-
                 IEnumerable<ViewsAndSaves> ViewsAndSavesList = (from grouped in db.GetTable<rss>()
                                                                 group grouped by grouped.source into newGrouped
                                                                 select new ViewsAndSaves
                                                                 {
                                                                     Source = newGrouped.Key,
                                                                     CountViews = newGrouped.Sum(item => item.views),
-                                                                    CountSaves = newGrouped.Sum(item => item.saves)
+                                                                    CountSaves = newGrouped.Count()
                                                                 }).ToList();
-
                 foreach (ViewsAndSaves item in ViewsAndSavesList)
                 {
-                    Console.WriteLine($"\n{item.Source}\nПросмотры: {item.CountViews}\nСохранения: {item.CountSaves}");
+                    Console.WriteLine($"\n{item.Source}\nПрочитано: {item.CountViews}\nСохранено: {item.CountSaves}");
                 }
             }
             Console.ReadKey();

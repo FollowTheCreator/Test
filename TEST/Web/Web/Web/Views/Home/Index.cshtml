@@ -4,82 +4,83 @@
         max-width: 400px;
     }
 </style>
-<h1>Новостная лента</h1>
+<a id="top"></a>
+<h1 style="text-align: center;">Новостная лента</h1>
+<hr>
 
 @using (Ajax.BeginForm("ajaxPageLinks", new AjaxOptions { UpdateTargetId = "targetDiv" }))
 {
-    <div class="form-group">
-        <label for="sel1">Источник ленты</label>
-        <select class="form-control" name="source" id="trueSelect">
-            <option @if (ViewBag.source == "%")
-                     { 
-                         @:selected 
-                     } 
-            value="%">Все</option>
-            <option @if (ViewBag.source == "Habr.com")
-                     { 
-                         @:selected 
-                     } 
-            value="Habr.com">Habr.com</option>
-            <option @if (ViewBag.source == "Interfax.by")
-                     { 
-                         @:selected 
-                     } 
-            value="Interfax.by">Interfax.by</option>
-        </select>
-    </div>
+    <div style="margin-left: 2%;">
+        <div class="form-group">
+            <label for="sel1">Источник ленты</label>
+            <select class="form-control" name="source" id="trueSelect">
+                <option @if (ViewBag.source == "%") { @: selected
+                        }
+                        value="%">
+                    Все
+                </option>
+                <option @if (ViewBag.source == "Habr.com") { @: selected
+                        }
+                        value="Habr.com">
+                    Habr.com
+                </option>
+                <option @if (ViewBag.source == "Interfax.by") { @: selected
+                        }
+                        value="Interfax.by">
+                    Interfax.by
+                </option>
+            </select>
+        </div>
 
-    <div id="trueRadio" name="1">
-        <label class="radio-inline"><input type="radio" name="sort" value="date" @if (ViewBag.sort == "date")
-                                                                                  { 
-                                                                                      @:checked 
-                                                                                  }
-        >Сортировать по дате</label>
-        <label class="radio-inline"><input type="radio" name="sort" value="source" @if (ViewBag.sort == "source")
-                                                                                    { 
-                                                                                        @:checked 
-                                                                                    }
-        >Сортировать по источнику</label>
-    </div>
+        <div id="trueRadio" name="1">
+            <label class="radio-inline">
+                <input type="radio" name="sort" value="date" @if (ViewBag.sort == "date") { @: checked
+                       }>Сортировать по дате
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="sort" value="source" @if (ViewBag.sort == "source") { @: checked
+                       }>Сортировать по источнику
+            </label>
+        </div>
 
-    <input id="ajaxSubmit" type="submit" style="display: none;">
+        <input id="ajaxSubmit" type="submit" style="display: none;">
+    </div>
 }
-<form id="fakeForm">
-    <div style="display: none;">
-        <select name="source" id="falseSelect">
-            <option id="all" @if (ViewBag.source == "%")
-                              { 
-                                  @:selected 
-                              } 
-            value="%">1</option>
-            <option id="Habr" @if (ViewBag.source == "Habr.com")
-                               { 
-                                   @:selected 
-                               } 
-            value="Habr.com">2</option>
-            <option id="Interfax" @if (ViewBag.source == "Interfax.by")
-                                   { 
-                                       @:selected 
-                                   } 
-            value="Interfax.by">3</option>
-        </select>
-    </div>
+<br />
+<div style="margin-left: 2%;">
+    <form id="fakeForm">
+        <div style="display: none;">
+            <select name="source" id="falseSelect">
+                <option id="all" @if (ViewBag.source == "%") { @: selected
+                        }
+                        value="%">
+                    1
+                </option>
+                <option id="Habr" @if (ViewBag.source == "Habr.com") { @: selected
+                        }
+                        value="Habr.com">
+                    2
+                </option>
+                <option id="Interfax" @if (ViewBag.source == "Interfax.by") { @: selected
+                        }
+                        value="Interfax.by">
+                    3
+                </option>
+            </select>
+        </div>
 
-    <div id="falseRadio" style="display: none;">
-        <input id="date" type="radio" name="sort" value="date" @if (ViewBag.sort == "date")
-                                                                { 
-                                                                    @:checked 
-                                                                }
-        >
-        <input id="source" type="radio" name="sort" value="source" @if (ViewBag.sort == "source")
-                                                                    { 
-                                                                        @:checked 
-                                                                    }
-        >
-    </div>
+        <div id="falseRadio" style="display: none;">
+            <input id="date" type="radio" name="sort" value="date" @if (ViewBag.sort == "date") { @: checked
+                    }>
+            <input id="source" type="radio" name="sort" value="source" @if (ViewBag.sort == "source") { @: checked
+                    }>
+        </div>
 
-    <input id="serverSubmit" value="Просмотреть" type="submit" class="btn btn-default">
-</form>
+        <input id="serverSubmit" value="Просмотреть" type="submit" class="btn btn-default">
+    </form>
+</div>
+
+<br />
 
 <div id="targetDiv">
     <table class="table">
@@ -102,8 +103,8 @@
 
     <br />
 
-    <div class="container">
-        <div class="btn-group">
+    <div style="margin-left: 2%">
+        <div class="btn-group" id="links">
             @for (int i = 1; i <= Model.pageInfo.totalPages; i++)
             {
                 if (i == 1)
