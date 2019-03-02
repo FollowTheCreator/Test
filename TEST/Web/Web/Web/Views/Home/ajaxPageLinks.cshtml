@@ -24,10 +24,16 @@
 
 <div class="container">
     <div class="btn-group">
-        @for (int i = 0; i < Model.pageInfo.totalPages; i++)
+        @for (int i = 1; i <= Model.pageInfo.totalPages; i++)
         {
-            @Ajax.ActionLink(Convert.ToString(i + 1), "ajaxPageLinks", new { page = (i + 1), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" })
+            if (i == Model.pageInfo.pageNumber)
+            {
+                @Ajax.ActionLink(Convert.ToString(i), "ajaxPageLinks", new { page = (i), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" }, new { @class = "btn btn-primary" });
+            }
+            else
+            {
+                @Ajax.ActionLink(Convert.ToString(i), "ajaxPageLinks", new { page = (i), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" }, new { @class = "btn btn-default" });
+            }
         }
-        <!--Html.pageLinks(Model.pageInfo, x => Url.Action("index", new { page = x, source = ViewBag.source, sort = ViewBag.sort }))-->
     </div>
 </div>

@@ -3,10 +3,6 @@
     img {
         max-width: 400px;
     }
-
-    .allcontainer {
-        padding: 5px;
-    }
 </style>
 <h1>Новостная лента</h1>
 
@@ -14,19 +10,76 @@
 {
     <div class="form-group">
         <label for="sel1">Источник ленты</label>
-        <select class="form-control" name="source">
-            <option @if (ViewBag.source == "%") { new HtmlString("selected"); } value="%">Все</option>
-            <option @if (ViewBag.source == "Habr.com") { new HtmlString("selected"); } value="Habr.com">Habr.com</option>
-            <option @if (ViewBag.source == "Interfax.com") { new HtmlString("selected"); } value="Interfax.by">Interfax.by</option>
+        <select class="form-control" name="source" id="trueSelect">
+            <option @if (ViewBag.source == "%")
+                     { 
+                         @:selected 
+                     } 
+            value="%">Все</option>
+            <option @if (ViewBag.source == "Habr.com")
+                     { 
+                         @:selected 
+                     } 
+            value="Habr.com">Habr.com</option>
+            <option @if (ViewBag.source == "Interfax.by")
+                     { 
+                         @:selected 
+                     } 
+            value="Interfax.by">Interfax.by</option>
         </select>
     </div>
 
-    <label class="radio-inline"><input type="radio" name="sort" value="date" @if (ViewBag.sort == "date") { new HtmlString("checked"); }>Сортировать по дате</label>
-    <label class="radio-inline"><input type="radio" name="sort" value="source" @if (ViewBag.sort == "source") { new HtmlString("checked"); }>Сортировать по источнику</label>
-    <br />
+    <div id="trueRadio" name="1">
+        <label class="radio-inline"><input type="radio" name="sort" value="date" @if (ViewBag.sort == "date")
+                                                                                  { 
+                                                                                      @:checked 
+                                                                                  }
+        >Сортировать по дате</label>
+        <label class="radio-inline"><input type="radio" name="sort" value="source" @if (ViewBag.sort == "source")
+                                                                                    { 
+                                                                                        @:checked 
+                                                                                    }
+        >Сортировать по источнику</label>
+    </div>
 
-    <input value="Просмотреть" type="submit" class="btn btn-default"></input>
+    <input id="ajaxSubmit" type="submit" style="display: none;">
 }
+<form id="fakeForm">
+    <div style="display: none;">
+        <select name="source" id="falseSelect">
+            <option id="all" @if (ViewBag.source == "%")
+                              { 
+                                  @:selected 
+                              } 
+            value="%">1</option>
+            <option id="Habr" @if (ViewBag.source == "Habr.com")
+                               { 
+                                   @:selected 
+                               } 
+            value="Habr.com">2</option>
+            <option id="Interfax" @if (ViewBag.source == "Interfax.by")
+                                   { 
+                                       @:selected 
+                                   } 
+            value="Interfax.by">3</option>
+        </select>
+    </div>
+
+    <div id="falseRadio" style="display: none;">
+        <input id="date" type="radio" name="sort" value="date" @if (ViewBag.sort == "date")
+                                                                { 
+                                                                    @:checked 
+                                                                }
+        >
+        <input id="source" type="radio" name="sort" value="source" @if (ViewBag.sort == "source")
+                                                                    { 
+                                                                        @:checked 
+                                                                    }
+        >
+    </div>
+
+    <input id="serverSubmit" value="Просмотреть" type="submit" class="btn btn-default">
+</form>
 
 <div id="targetDiv">
     <table class="table">
@@ -51,13 +104,17 @@
 
     <div class="container">
         <div class="btn-group">
-            @for (int i = 0; i < Model.pageInfo.totalPages; i++)
+            @for (int i = 1; i <= Model.pageInfo.totalPages; i++)
             {
-                @Ajax.ActionLink(Convert.ToString(i + 1), "ajaxPageLinks", new { page = (i + 1), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" })
+                if (i == 1)
+                {
+                    @Ajax.ActionLink(Convert.ToString(i), "ajaxPageLinks", new { page = (i), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" }, new { @class = "btn btn-primary" });
+                }
+                else
+                {
+                    @Ajax.ActionLink(Convert.ToString(i), "ajaxPageLinks", new { page = (i), source = ViewBag.source, sort = ViewBag.sort }, new AjaxOptions { UpdateTargetId = "targetDiv" }, new { @class = "btn btn-default" });
+                }
             }
-            <!--Html.pageLinks(Model.pageInfo, x => Url.Action("index", new { page = x, source = ViewBag.source, sort = ViewBag.sort }))-->
         </div>
     </div>
 </div>
-@Scripts.Render("~/scripts/jquery-3.3.1.min.js")
-@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
