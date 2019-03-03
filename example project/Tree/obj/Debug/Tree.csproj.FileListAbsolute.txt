@@ -1,0 +1,128 @@
+D:\vs\projects\Tree\Tree\bin\ApplicationInsights.config
+D:\vs\projects\Tree\Tree\bin\roslyn\csc.exe
+D:\vs\projects\Tree\Tree\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\vs\projects\Tree\Tree\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\vs\projects\Tree\Tree\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\vs\projects\Tree\Tree\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\vs\projects\Tree\Tree\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\vs\projects\Tree\Tree\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\vs\projects\Tree\Tree\bin\roslyn\System.Collections.Immutable.dll
+D:\vs\projects\Tree\Tree\bin\roslyn\System.Reflection.Metadata.dll
+D:\vs\projects\Tree\Tree\bin\roslyn\vbc.exe
+D:\vs\projects\Tree\Tree\bin\roslyn\VBCSCompiler.exe
+D:\vs\projects\Tree\Tree\bin\roslyn\VBCSCompiler.exe.config
+D:\vs\projects\Tree\Tree\bin\Tree.dll.config
+D:\vs\projects\Tree\Tree\bin\Tree.dll
+D:\vs\projects\Tree\Tree\bin\Tree.pdb
+D:\vs\projects\Tree\Tree\bin\Antlr3.Runtime.dll
+D:\vs\projects\Tree\Tree\bin\EntityFramework.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.Agent.Intercept.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.DependencyCollector.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.Web.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.WindowsServer.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.ApplicationInsights.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\vs\projects\Tree\Tree\bin\Microsoft.Web.Infrastructure.dll
+D:\vs\projects\Tree\Tree\bin\Newtonsoft.Json.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.Helpers.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.Mvc.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.Optimization.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.Razor.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.WebPages.Deployment.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.WebPages.dll
+D:\vs\projects\Tree\Tree\bin\System.Web.WebPages.Razor.dll
+D:\vs\projects\Tree\Tree\bin\WebGrease.dll
+D:\vs\projects\Tree\Tree\bin\EntityFramework.xml
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.DependencyCollector.xml
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.Web.xml
+D:\vs\projects\Tree\Tree\bin\Microsoft.AI.WindowsServer.xml
+D:\vs\projects\Tree\Tree\bin\Microsoft.ApplicationInsights.xml
+D:\vs\projects\Tree\Tree\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.Helpers.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.Mvc.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.Optimization.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.Razor.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.WebPages.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.WebPages.Deployment.xml
+D:\vs\projects\Tree\Tree\bin\System.Web.WebPages.Razor.xml
+D:\vs\projects\Tree\Tree\bin\Antlr3.Runtime.pdb
+D:\vs\projects\Tree\Tree\bin\Newtonsoft.Json.xml
+D:\vs\projects\Tree\Tree\bin\ru\EntityFramework.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.Helpers.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.Mvc.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.Optimization.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.Razor.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.WebPages.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\vs\projects\Tree\Tree\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\vs\projects\Tree\Tree\obj\Debug\Tree.csprojResolveAssemblyReference.cache
+D:\vs\projects\Tree\Tree\obj\Debug\Tree.dll
+D:\vs\projects\Tree\Tree\obj\Debug\Tree.pdb
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ApplicationInsights.config
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\csc.exe
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\System.Collections.Immutable.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\System.Reflection.Metadata.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\vbc.exe
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\VBCSCompiler.exe
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\roslyn\VBCSCompiler.exe.config
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Tree.dll.config
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Tree.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Tree.pdb
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Antlr3.Runtime.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\EntityFramework.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.Agent.Intercept.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.DependencyCollector.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.Web.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.WindowsServer.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.ApplicationInsights.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.Web.Infrastructure.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Newtonsoft.Json.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Helpers.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Mvc.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Optimization.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Razor.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.WebPages.Deployment.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.WebPages.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.WebPages.Razor.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\WebGrease.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\EntityFramework.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.DependencyCollector.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.Web.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.AI.WindowsServer.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.ApplicationInsights.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Helpers.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Mvc.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Optimization.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.Razor.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.WebPages.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.WebPages.Deployment.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\System.Web.WebPages.Razor.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Antlr3.Runtime.pdb
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\Newtonsoft.Json.xml
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\EntityFramework.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.Helpers.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.Mvc.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.Optimization.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.Razor.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.WebPages.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\obj\Debug\Tree.csprojAssemblyReference.cache
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\obj\Debug\Tree.csproj.CoreCompileInputs.cache
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\obj\Debug\Tree.csproj.CopyComplete
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\obj\Debug\Tree.dll
+C:\data\мрк\практика php asp.net\asp.net\Tree\Tree\obj\Debug\Tree.pdb

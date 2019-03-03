@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Model" Provider="FirebirdSql.Data.FirebirdClient" ProviderManifestToken="2.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BUILT_IN_ROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TYPE_BUILT_IN_ROOM_ID" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="TOTAL_AREA" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TYPE_FOUNDATION_ID" Type="numeric" Precision="9" Scale="0" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="70" Unicode="true" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOUSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="BEGINNING_TECHNICAL_BREAK" Type="date" />
+          <Property Name="TERMINATION_TECHNICAL_BREAK" Type="date" />
+          <Property Name="MAX_COUNT_FLOORS" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="COUNT_APARTMENTS" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="TOTAL_AREA" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TYPE_FOUNDATION_ID" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="SETTLING_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="MANAGEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="70" Unicode="true" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBJECT_CONSTRUCTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="MICRODISTRICT_ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TYPE_OBJECT_CONSTRUCTION_ID" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="NAME" Type="varchar" MaxLength="300" Unicode="true" Nullable="false" />
+          <Property Name="FULL_NAME" Type="clob" Unicode="true" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="CONTRACT_NUMBER" Type="varchar" MaxLength="70" Unicode="true" />
+          <Property Name="CONTRACT_DATE" Type="date" />
+          <Property Name="CONTRACT_COMMENT" Type="clob" Unicode="true" />
+          <Property Name="GEN_MANAGEMENT_ID" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="IS_ACTIVE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="SCHEME_FILE_NAME" Type="clob" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUALIFIER_OBJECT_CONSTRUCTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="PARENT_QUALIFIER_ID" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="NAME" Type="varchar" MaxLength="70" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUB_OBJECT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="OBJECT_ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="CODE" Type="varchar" MaxLength="70" Unicode="true" />
+          <Property Name="CONSTRUCTION_NUMBER" Type="varchar" MaxLength="70" Unicode="true" />
+          <Property Name="CONSTRUCTION_PERIOD" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="ORDER_CONSTRUCTION_PERIOD" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="PERM_IDKNS_NUMBER" Type="varchar" MaxLength="70" Unicode="true" />
+          <Property Name="PERM_BUILDING_SITE_DATE_RECEIPT" Type="date" />
+          <Property Name="PERM_BUILDING_SITE_EXPIRY_DATE" Type="date" />
+          <Property Name="COMMISSIONIN_DATE" Type="date" />
+          <Property Name="COMMIS_DATE_COMMENT" Type="clob" Unicode="true" />
+          <Property Name="ALL_SCH_WORK_IS_COMPLETE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="COST_ALL_WORKS" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="COST_ALL_WORKS_PRICES_DATE" Type="date" />
+          <Property Name="TERM_PAY_EXEC_WORKS" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="TYPE_DAYS_ID" Type="numeric" Precision="9" Scale="0" />
+          <Property Name="ADVANCE" Type="numeric" Precision="4" Scale="1" />
+          <Property Name="ADVANCE_PAYMENT_TO" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="ADVANCE_PAYMENT_ICW" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="PROTECTION_UPON" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="TYPE_SUB_OBJECT_ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_FOUNDATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="70" Unicode="true" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBJECT_CONSTRUCTION_TREE">
+          <Key>
+            <PropertyRef Name="UNION_ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="None" />
+          <Property Name="PARENT_ID" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="None" Nullable="true"/>
+          <Property Name="UNION_ID" Type="varchar" MaxLength="32765" Unicode="true" StoreGeneratedPattern="None" Nullable="false" />
+          <Property Name="PARENT_UNION_ID" Type="varchar" MaxLength="32765" Unicode="true" StoreGeneratedPattern="None" />
+          <Property Name="NAME" Type="varchar" MaxLength="32765" Unicode="true" StoreGeneratedPattern="None" />
+          <Property Name="LVL" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="None" />
+          <Property Name="NODE_TYPE_ID" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="None" />
+          <Property Name="NODE_TYPE_NAME" Type="varchar" MaxLength="32765" Unicode="true" StoreGeneratedPattern="None" />
+          <Property Name="HAVE_CHILDS" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="None" />
+        </EntityType>
+        <Association Name="FK_BUILT_IN_ROOM_2">
+          <End Role="TYPE_FOUNDATION" Type="Self.TYPE_FOUNDATION" Multiplicity="0..1" />
+          <End Role="BUILT_IN_ROOM" Type="Self.BUILT_IN_ROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_FOUNDATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BUILT_IN_ROOM">
+              <PropertyRef Name="TYPE_FOUNDATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUILT_IN_ROOM_3">
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BUILT_IN_ROOM" Type="Self.BUILT_IN_ROOM" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_OBJECT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BUILT_IN_ROOM">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOUSE_1">
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HOUSE" Type="Self.HOUSE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_OBJECT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HOUSE">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOUSE_2">
+          <End Role="TYPE_FOUNDATION" Type="Self.TYPE_FOUNDATION" Multiplicity="0..1" />
+          <End Role="HOUSE" Type="Self.HOUSE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_FOUNDATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HOUSE">
+              <PropertyRef Name="TYPE_FOUNDATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OBJECT_CONSTRUCTION_2">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="OBJECT_CONSTRUCTION" Type="Self.OBJECT_CONSTRUCTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OBJECT_CONSTRUCTION">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUALIFIER_OBJECT_CONSTR">
+          <End Role="QUALIFIER_OBJECT_CONSTRUCTION" Type="Self.QUALIFIER_OBJECT_CONSTRUCTION" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QUALIFIER_OBJECT_CONSTRUCTION1" Type="Self.QUALIFIER_OBJECT_CONSTRUCTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUALIFIER_OBJECT_CONSTRUCTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QUALIFIER_OBJECT_CONSTRUCTION1">
+              <PropertyRef Name="PARENT_QUALIFIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUB_OBJECT_1">
+          <End Role="OBJECT_CONSTRUCTION" Type="Self.OBJECT_CONSTRUCTION" Multiplicity="1" />
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBJECT_CONSTRUCTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUB_OBJECT">
+              <PropertyRef Name="OBJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUB_OBJECT_2">
+          <End Role="QUALIFIER_OBJECT_CONSTRUCTION" Type="Self.QUALIFIER_OBJECT_CONSTRUCTION" Multiplicity="1" />
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUALIFIER_OBJECT_CONSTRUCTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUB_OBJECT">
+              <PropertyRef Name="TYPE_SUB_OBJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="BUILT_IN_ROOM" EntityType="Self.BUILT_IN_ROOM" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="HOUSE" EntityType="Self.HOUSE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="MANAGEMENT" EntityType="Self.MANAGEMENT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="OBJECT_CONSTRUCTION" EntityType="Self.OBJECT_CONSTRUCTION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUALIFIER_OBJECT_CONSTRUCTION" EntityType="Self.QUALIFIER_OBJECT_CONSTRUCTION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SUB_OBJECT" EntityType="Self.SUB_OBJECT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TYPE_FOUNDATION" EntityType="Self.TYPE_FOUNDATION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="OBJECT_CONSTRUCTION_TREE" EntityType="Self.OBJECT_CONSTRUCTION_TREE" Schema="Firebird" store:Type="Tables" />
+          <AssociationSet Name="FK_BUILT_IN_ROOM_2" Association="Self.FK_BUILT_IN_ROOM_2">
+            <End Role="TYPE_FOUNDATION" EntitySet="TYPE_FOUNDATION" />
+            <End Role="BUILT_IN_ROOM" EntitySet="BUILT_IN_ROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUILT_IN_ROOM_3" Association="Self.FK_BUILT_IN_ROOM_3">
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+            <End Role="BUILT_IN_ROOM" EntitySet="BUILT_IN_ROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOUSE_1" Association="Self.FK_HOUSE_1">
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+            <End Role="HOUSE" EntitySet="HOUSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOUSE_2" Association="Self.FK_HOUSE_2">
+            <End Role="TYPE_FOUNDATION" EntitySet="TYPE_FOUNDATION" />
+            <End Role="HOUSE" EntitySet="HOUSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OBJECT_CONSTRUCTION_2" Association="Self.FK_OBJECT_CONSTRUCTION_2">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="OBJECT_CONSTRUCTION" EntitySet="OBJECT_CONSTRUCTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUALIFIER_OBJECT_CONSTR" Association="Self.FK_QUALIFIER_OBJECT_CONSTR">
+            <End Role="QUALIFIER_OBJECT_CONSTRUCTION" EntitySet="QUALIFIER_OBJECT_CONSTRUCTION" />
+            <End Role="QUALIFIER_OBJECT_CONSTRUCTION1" EntitySet="QUALIFIER_OBJECT_CONSTRUCTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUB_OBJECT_1" Association="Self.FK_SUB_OBJECT_1">
+            <End Role="OBJECT_CONSTRUCTION" EntitySet="OBJECT_CONSTRUCTION" />
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUB_OBJECT_2" Association="Self.FK_SUB_OBJECT_2">
+            <End Role="QUALIFIER_OBJECT_CONSTRUCTION" EntitySet="QUALIFIER_OBJECT_CONSTRUCTION" />
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GET_ALL_SERIES_FOR_HOUSE_Result">
+          <Property Name="ALL_SERIES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="GET_ALL_TYPE_SOUR_FIN_Result">
+          <Property Name="ALL_TYPE_SOUR_FIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="GET_LAST_CONSTRACTION_TERM_Result">
+          <Property Name="CONSTRUCTION_TERM_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="DATE_RECEIPT" Type="DateTime" />
+          <Property Name="DATE_EXPIRY" Type="DateTime" />
+          <Property Name="L_SECTION_ADD_AGREEMENT_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="TEXT_COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ADD_AGREEMENT_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="NUMBER_AGREEMENT" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_AGREEMENT" Type="DateTime" />
+          <Property Name="SECTION_ADD_AGREEMENT_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="SECTION_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="GET_LAST_PERMISSION_ICW_Result">
+          <Property Name="PERMISSION_ICW_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="DATE_RECEIPT" Type="DateTime" />
+          <Property Name="DATE_EXPIRY" Type="DateTime" />
+          <Property Name="TEXT_COMMENT" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </ComplexType>
+        <ComplexType Name="GET_SUB_OBJECT_NAME_Result">
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <EntityType Name="BUILT_IN_ROOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TYPE_BUILT_IN_ROOM_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="TOTAL_AREA" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TYPE_FOUNDATION_ID" Type="Decimal" Precision="9" Scale="0" />
+          <NavigationProperty Name="TYPE_FOUNDATION" Relationship="Self.FK_BUILT_IN_ROOM_2" FromRole="BUILT_IN_ROOM" ToRole="TYPE_FOUNDATION" />
+          <NavigationProperty Name="SUB_OBJECT" Relationship="Self.FK_BUILT_IN_ROOM_3" FromRole="BUILT_IN_ROOM" ToRole="SUB_OBJECT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <NavigationProperty Name="OBJECT_CONSTRUCTION" Relationship="Self.FK_OBJECT_CONSTRUCTION_2" FromRole="CUSTOMER" ToRole="OBJECT_CONSTRUCTION" />
+        </EntityType>
+        <EntityType Name="HOUSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="BEGINNING_TECHNICAL_BREAK" Type="DateTime" />
+          <Property Name="TERMINATION_TECHNICAL_BREAK" Type="DateTime" />
+          <Property Name="MAX_COUNT_FLOORS" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="COUNT_APARTMENTS" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="TOTAL_AREA" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TYPE_FOUNDATION_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="SETTLING_DATE" Type="DateTime" />
+          <NavigationProperty Name="SUB_OBJECT" Relationship="Self.FK_HOUSE_1" FromRole="HOUSE" ToRole="SUB_OBJECT" />
+          <NavigationProperty Name="TYPE_FOUNDATION" Relationship="Self.FK_HOUSE_2" FromRole="HOUSE" ToRole="TYPE_FOUNDATION" />
+        </EntityType>
+        <EntityType Name="MANAGEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBJECT_CONSTRUCTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="MICRODISTRICT_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TYPE_OBJECT_CONSTRUCTION_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="CONTRACT_NUMBER" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="CONTRACT_DATE" Type="DateTime" />
+          <Property Name="CONTRACT_COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GEN_MANAGEMENT_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="IS_ACTIVE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="SCHEME_FILE_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_OBJECT_CONSTRUCTION_2" FromRole="OBJECT_CONSTRUCTION" ToRole="CUSTOMER" />
+          <NavigationProperty Name="SUB_OBJECT" Relationship="Self.FK_SUB_OBJECT_1" FromRole="OBJECT_CONSTRUCTION" ToRole="SUB_OBJECT" />
+        </EntityType>
+        <EntityType Name="QUALIFIER_OBJECT_CONSTRUCTION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="PARENT_QUALIFIER_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="QUALIFIER_OBJECT_CONSTRUCTION1" Relationship="Self.FK_QUALIFIER_OBJECT_CONSTR" FromRole="QUALIFIER_OBJECT_CONSTRUCTION" ToRole="QUALIFIER_OBJECT_CONSTRUCTION1" />
+          <NavigationProperty Name="QUALIFIER_OBJECT_CONSTRUCTION2" Relationship="Self.FK_QUALIFIER_OBJECT_CONSTR" FromRole="QUALIFIER_OBJECT_CONSTRUCTION1" ToRole="QUALIFIER_OBJECT_CONSTRUCTION" />
+          <NavigationProperty Name="SUB_OBJECT" Relationship="Self.FK_SUB_OBJECT_2" FromRole="QUALIFIER_OBJECT_CONSTRUCTION" ToRole="SUB_OBJECT" />
+        </EntityType>
+        <EntityType Name="SUB_OBJECT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="OBJECT_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="CODE" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="CONSTRUCTION_NUMBER" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="CONSTRUCTION_PERIOD" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ORDER_CONSTRUCTION_PERIOD" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="PERM_IDKNS_NUMBER" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="PERM_BUILDING_SITE_DATE_RECEIPT" Type="DateTime" />
+          <Property Name="PERM_BUILDING_SITE_EXPIRY_DATE" Type="DateTime" />
+          <Property Name="COMMISSIONIN_DATE" Type="DateTime" />
+          <Property Name="COMMIS_DATE_COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ALL_SCH_WORK_IS_COMPLETE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="COST_ALL_WORKS" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="COST_ALL_WORKS_PRICES_DATE" Type="DateTime" />
+          <Property Name="TERM_PAY_EXEC_WORKS" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="TYPE_DAYS_ID" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="ADVANCE" Type="Decimal" Precision="4" Scale="1" />
+          <Property Name="ADVANCE_PAYMENT_TO" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="ADVANCE_PAYMENT_ICW" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="PROTECTION_UPON" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="TYPE_SUB_OBJECT_ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BUILT_IN_ROOM" Relationship="Self.FK_BUILT_IN_ROOM_3" FromRole="SUB_OBJECT" ToRole="BUILT_IN_ROOM" />
+          <NavigationProperty Name="HOUSE" Relationship="Self.FK_HOUSE_1" FromRole="SUB_OBJECT" ToRole="HOUSE" />
+          <NavigationProperty Name="OBJECT_CONSTRUCTION" Relationship="Self.FK_SUB_OBJECT_1" FromRole="SUB_OBJECT" ToRole="OBJECT_CONSTRUCTION" />
+          <NavigationProperty Name="QUALIFIER_OBJECT_CONSTRUCTION" Relationship="Self.FK_SUB_OBJECT_2" FromRole="SUB_OBJECT" ToRole="QUALIFIER_OBJECT_CONSTRUCTION" />
+        </EntityType>
+        <EntityType Name="TYPE_FOUNDATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BUILT_IN_ROOM" Relationship="Self.FK_BUILT_IN_ROOM_2" FromRole="TYPE_FOUNDATION" ToRole="BUILT_IN_ROOM" />
+          <NavigationProperty Name="HOUSE" Relationship="Self.FK_HOUSE_2" FromRole="TYPE_FOUNDATION" ToRole="HOUSE" />
+        </EntityType>
+        <Association Name="FK_BUILT_IN_ROOM_2">
+          <End Role="TYPE_FOUNDATION" Type="Self.TYPE_FOUNDATION" Multiplicity="0..1" />
+          <End Role="BUILT_IN_ROOM" Type="Self.BUILT_IN_ROOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_FOUNDATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BUILT_IN_ROOM">
+              <PropertyRef Name="TYPE_FOUNDATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUILT_IN_ROOM_3">
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BUILT_IN_ROOM" Type="Self.BUILT_IN_ROOM" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_OBJECT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BUILT_IN_ROOM">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OBJECT_CONSTRUCTION_2">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="OBJECT_CONSTRUCTION" Type="Self.OBJECT_CONSTRUCTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OBJECT_CONSTRUCTION">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOUSE_1">
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HOUSE" Type="Self.HOUSE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_OBJECT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HOUSE">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOUSE_2">
+          <End Role="TYPE_FOUNDATION" Type="Self.TYPE_FOUNDATION" Multiplicity="0..1" />
+          <End Role="HOUSE" Type="Self.HOUSE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_FOUNDATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HOUSE">
+              <PropertyRef Name="TYPE_FOUNDATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUB_OBJECT_1">
+          <End Role="OBJECT_CONSTRUCTION" Type="Self.OBJECT_CONSTRUCTION" Multiplicity="1" />
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBJECT_CONSTRUCTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUB_OBJECT">
+              <PropertyRef Name="OBJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUALIFIER_OBJECT_CONSTR">
+          <End Role="QUALIFIER_OBJECT_CONSTRUCTION" Type="Self.QUALIFIER_OBJECT_CONSTRUCTION" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QUALIFIER_OBJECT_CONSTRUCTION1" Type="Self.QUALIFIER_OBJECT_CONSTRUCTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUALIFIER_OBJECT_CONSTRUCTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QUALIFIER_OBJECT_CONSTRUCTION1">
+              <PropertyRef Name="PARENT_QUALIFIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUB_OBJECT_2">
+          <End Role="QUALIFIER_OBJECT_CONSTRUCTION" Type="Self.QUALIFIER_OBJECT_CONSTRUCTION" Multiplicity="1" />
+          <End Role="SUB_OBJECT" Type="Self.SUB_OBJECT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUALIFIER_OBJECT_CONSTRUCTION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUB_OBJECT">
+              <PropertyRef Name="TYPE_SUB_OBJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BUILT_IN_ROOM" EntityType="Self.BUILT_IN_ROOM" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="HOUSE" EntityType="Self.HOUSE" />
+          <EntitySet Name="MANAGEMENT" EntityType="Self.MANAGEMENT" />
+          <EntitySet Name="OBJECT_CONSTRUCTION" EntityType="Self.OBJECT_CONSTRUCTION" />
+          <EntitySet Name="QUALIFIER_OBJECT_CONSTRUCTION" EntityType="Self.QUALIFIER_OBJECT_CONSTRUCTION" />
+          <EntitySet Name="SUB_OBJECT" EntityType="Self.SUB_OBJECT" />
+          <EntitySet Name="TYPE_FOUNDATION" EntityType="Self.TYPE_FOUNDATION" />
+          <EntitySet Name="OBJECT_CONSTRUCTION_TREE" EntityType="Self.OBJECT_CONSTRUCTION_TREE" />
+          <AssociationSet Name="FK_BUILT_IN_ROOM_2" Association="Self.FK_BUILT_IN_ROOM_2">
+            <End Role="TYPE_FOUNDATION" EntitySet="TYPE_FOUNDATION" />
+            <End Role="BUILT_IN_ROOM" EntitySet="BUILT_IN_ROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUILT_IN_ROOM_3" Association="Self.FK_BUILT_IN_ROOM_3">
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+            <End Role="BUILT_IN_ROOM" EntitySet="BUILT_IN_ROOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OBJECT_CONSTRUCTION_2" Association="Self.FK_OBJECT_CONSTRUCTION_2">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="OBJECT_CONSTRUCTION" EntitySet="OBJECT_CONSTRUCTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOUSE_1" Association="Self.FK_HOUSE_1">
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+            <End Role="HOUSE" EntitySet="HOUSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOUSE_2" Association="Self.FK_HOUSE_2">
+            <End Role="TYPE_FOUNDATION" EntitySet="TYPE_FOUNDATION" />
+            <End Role="HOUSE" EntitySet="HOUSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUB_OBJECT_1" Association="Self.FK_SUB_OBJECT_1">
+            <End Role="OBJECT_CONSTRUCTION" EntitySet="OBJECT_CONSTRUCTION" />
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUALIFIER_OBJECT_CONSTR" Association="Self.FK_QUALIFIER_OBJECT_CONSTR">
+            <End Role="QUALIFIER_OBJECT_CONSTRUCTION" EntitySet="QUALIFIER_OBJECT_CONSTRUCTION" />
+            <End Role="QUALIFIER_OBJECT_CONSTRUCTION1" EntitySet="QUALIFIER_OBJECT_CONSTRUCTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUB_OBJECT_2" Association="Self.FK_SUB_OBJECT_2">
+            <End Role="QUALIFIER_OBJECT_CONSTRUCTION" EntitySet="QUALIFIER_OBJECT_CONSTRUCTION" />
+            <End Role="SUB_OBJECT" EntitySet="SUB_OBJECT" />
+          </AssociationSet>
+          <FunctionImport Name="GET_ALL_SERIES_FOR_HOUSE" IsComposable="true" ReturnType="Collection(Model.GET_ALL_SERIES_FOR_HOUSE_Result)">
+            <Parameter Name="HOUSE_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_ALL_TYPE_SOUR_FIN" IsComposable="true" ReturnType="Collection(Model.GET_ALL_TYPE_SOUR_FIN_Result)">
+            <Parameter Name="SUB_OBJECT_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_LAST_CONSTRACTION_TERM" IsComposable="true" ReturnType="Collection(Model.GET_LAST_CONSTRACTION_TERM_Result)">
+            <Parameter Name="SUB_OBJECT_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_LAST_PERMISSION_ICW" IsComposable="true" ReturnType="Collection(Model.GET_LAST_PERMISSION_ICW_Result)">
+            <Parameter Name="SUB_OBJECT_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SUB_OBJECT_NAME" IsComposable="true" ReturnType="Collection(Model.GET_SUB_OBJECT_NAME_Result)">
+            <Parameter Name="SUB_OBJECT_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          
+          
+        </EntityContainer>
+        <EntityType Name="OBJECT_CONSTRUCTION_TREE" >
+          <Key>
+            <PropertyRef Name="UNION_ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Scale="0" Precision="9" />
+          <Property Name="PARENT_ID" Type="Decimal" Nullable="true" Scale="0" Precision="9" />
+          <Property Name="UNION_ID" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="120" />
+          <Property Name="PARENT_UNION_ID" Type="String" Nullable="true" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="387" FixedLength="false" Unicode="true" />
+          <Property Name="LVL" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="NODE_TYPE_ID" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+          <Property Name="NODE_TYPE_NAME" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="70" />
+          <Property Name="HAVE_CHILDS" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="BUILT_IN_ROOM">
+            <EntityTypeMapping TypeName="Model.BUILT_IN_ROOM">
+              <MappingFragment StoreEntitySet="BUILT_IN_ROOM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TYPE_BUILT_IN_ROOM_ID" ColumnName="TYPE_BUILT_IN_ROOM_ID" />
+                <ScalarProperty Name="TOTAL_AREA" ColumnName="TOTAL_AREA" />
+                <ScalarProperty Name="TYPE_FOUNDATION_ID" ColumnName="TYPE_FOUNDATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER">
+            <EntityTypeMapping TypeName="Model.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOUSE">
+            <EntityTypeMapping TypeName="Model.HOUSE">
+              <MappingFragment StoreEntitySet="HOUSE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BEGINNING_TECHNICAL_BREAK" ColumnName="BEGINNING_TECHNICAL_BREAK" />
+                <ScalarProperty Name="TERMINATION_TECHNICAL_BREAK" ColumnName="TERMINATION_TECHNICAL_BREAK" />
+                <ScalarProperty Name="MAX_COUNT_FLOORS" ColumnName="MAX_COUNT_FLOORS" />
+                <ScalarProperty Name="COUNT_APARTMENTS" ColumnName="COUNT_APARTMENTS" />
+                <ScalarProperty Name="TOTAL_AREA" ColumnName="TOTAL_AREA" />
+                <ScalarProperty Name="TYPE_FOUNDATION_ID" ColumnName="TYPE_FOUNDATION_ID" />
+                <ScalarProperty Name="SETTLING_DATE" ColumnName="SETTLING_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANAGEMENT">
+            <EntityTypeMapping TypeName="Model.MANAGEMENT">
+              <MappingFragment StoreEntitySet="MANAGEMENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBJECT_CONSTRUCTION">
+            <EntityTypeMapping TypeName="Model.OBJECT_CONSTRUCTION">
+              <MappingFragment StoreEntitySet="OBJECT_CONSTRUCTION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MICRODISTRICT_ID" ColumnName="MICRODISTRICT_ID" />
+                <ScalarProperty Name="TYPE_OBJECT_CONSTRUCTION_ID" ColumnName="TYPE_OBJECT_CONSTRUCTION_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CONTRACT_NUMBER" ColumnName="CONTRACT_NUMBER" />
+                <ScalarProperty Name="CONTRACT_DATE" ColumnName="CONTRACT_DATE" />
+                <ScalarProperty Name="CONTRACT_COMMENT" ColumnName="CONTRACT_COMMENT" />
+                <ScalarProperty Name="GEN_MANAGEMENT_ID" ColumnName="GEN_MANAGEMENT_ID" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="SCHEME_FILE_NAME" ColumnName="SCHEME_FILE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUALIFIER_OBJECT_CONSTRUCTION">
+            <EntityTypeMapping TypeName="Model.QUALIFIER_OBJECT_CONSTRUCTION">
+              <MappingFragment StoreEntitySet="QUALIFIER_OBJECT_CONSTRUCTION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PARENT_QUALIFIER_ID" ColumnName="PARENT_QUALIFIER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUB_OBJECT">
+            <EntityTypeMapping TypeName="Model.SUB_OBJECT">
+              <MappingFragment StoreEntitySet="SUB_OBJECT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="CONSTRUCTION_NUMBER" ColumnName="CONSTRUCTION_NUMBER" />
+                <ScalarProperty Name="CONSTRUCTION_PERIOD" ColumnName="CONSTRUCTION_PERIOD" />
+                <ScalarProperty Name="ORDER_CONSTRUCTION_PERIOD" ColumnName="ORDER_CONSTRUCTION_PERIOD" />
+                <ScalarProperty Name="PERM_IDKNS_NUMBER" ColumnName="PERM_IDKNS_NUMBER" />
+                <ScalarProperty Name="PERM_BUILDING_SITE_DATE_RECEIPT" ColumnName="PERM_BUILDING_SITE_DATE_RECEIPT" />
+                <ScalarProperty Name="PERM_BUILDING_SITE_EXPIRY_DATE" ColumnName="PERM_BUILDING_SITE_EXPIRY_DATE" />
+                <ScalarProperty Name="COMMISSIONIN_DATE" ColumnName="COMMISSIONIN_DATE" />
+                <ScalarProperty Name="COMMIS_DATE_COMMENT" ColumnName="COMMIS_DATE_COMMENT" />
+                <ScalarProperty Name="ALL_SCH_WORK_IS_COMPLETE" ColumnName="ALL_SCH_WORK_IS_COMPLETE" />
+                <ScalarProperty Name="COST_ALL_WORKS" ColumnName="COST_ALL_WORKS" />
+                <ScalarProperty Name="COST_ALL_WORKS_PRICES_DATE" ColumnName="COST_ALL_WORKS_PRICES_DATE" />
+                <ScalarProperty Name="TERM_PAY_EXEC_WORKS" ColumnName="TERM_PAY_EXEC_WORKS" />
+                <ScalarProperty Name="TYPE_DAYS_ID" ColumnName="TYPE_DAYS_ID" />
+                <ScalarProperty Name="ADVANCE" ColumnName="ADVANCE" />
+                <ScalarProperty Name="ADVANCE_PAYMENT_TO" ColumnName="ADVANCE_PAYMENT_TO" />
+                <ScalarProperty Name="ADVANCE_PAYMENT_ICW" ColumnName="ADVANCE_PAYMENT_ICW" />
+                <ScalarProperty Name="PROTECTION_UPON" ColumnName="PROTECTION_UPON" />
+                <ScalarProperty Name="TYPE_SUB_OBJECT_ID" ColumnName="TYPE_SUB_OBJECT_ID" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_FOUNDATION">
+            <EntityTypeMapping TypeName="Model.TYPE_FOUNDATION">
+              <MappingFragment StoreEntitySet="TYPE_FOUNDATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBJECT_CONSTRUCTION_TREE">
+            <EntityTypeMapping TypeName="IsTypeOf(Model.OBJECT_CONSTRUCTION_TREE)">
+              <MappingFragment StoreEntitySet="OBJECT_CONSTRUCTION_TREE" >
+                <ScalarProperty Name="HAVE_CHILDS" ColumnName="HAVE_CHILDS" />
+                <ScalarProperty Name="NODE_TYPE_NAME" ColumnName="NODE_TYPE_NAME" />
+                <ScalarProperty Name="NODE_TYPE_ID" ColumnName="NODE_TYPE_ID" />
+                <ScalarProperty Name="LVL" ColumnName="LVL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PARENT_UNION_ID" ColumnName="PARENT_UNION_ID" />
+                <ScalarProperty Name="UNION_ID" ColumnName="UNION_ID" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

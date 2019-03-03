@@ -1,0 +1,215 @@
+﻿@helper create(List<OBJECT_CONSTRUCTION_TREE> mas, int counter, int maxlvl, int[]levels, string parent)
+{
+    counter++;
+    if (counter <= maxlvl)
+    {
+        for (int i = levels[counter]; i < levels[counter + 1]; i++)
+        {
+            if (Convert.ToString(mas[i].PARENT_UNION_ID) == parent)
+            {
+                string bold = "";
+                string infolink = "";
+                if (mas[i].NODE_TYPE_ID == 0) //если = 0, то микрорайон(выделяется жирным)
+                {
+                    bold = "bold";
+                    infolink = "";
+                }
+                else if (mas[i].NODE_TYPE_ID == 1) //если = 1, то объект строительства(подчёркивается)
+                {
+                    bold = "aboveline";
+                    infolink = Convert.ToString(mas[i].UNION_ID);
+                }
+                else //в других случаях это субъект строительства(остаётся неизменным)
+                {
+                    bold = "";
+                    infolink = Convert.ToString(mas[i].UNION_ID);
+                }
+                if (mas[i].HAVE_CHILDS == 1)
+                {
+                    <li><div><span class="text" onclick="closeopen('@mas[i].UNION_ID', this)">►</span><span name="@mas[i].UNION_ID" class="text2 @bold" onclick="info('@infolink')">@mas[i].NAME</span></div><ul name="@mas[i].UNION_ID" class="closed">
+                        @create(mas, counter, maxlvl, levels, Convert.ToString(mas[i].UNION_ID))
+                    </ul></li>
+                }
+                else if (mas[i].HAVE_CHILDS == 0)
+                {
+                    <li><div><span name="mas[i].UNION_ID" class="text2 @bold" onclick="info('@infolink')">@mas[i].NAME</span></div></li>
+                }
+            }
+        }
+    }
+    counter--;
+}
+@{
+    int counter = -1;
+    var masobjects = ViewBag.Objects;
+    int nameindex = 0;
+    var mas1 = ViewBag.Mas;
+    int lengthmas = ViewBag.LengthMas;
+    var subjects = ViewBag.check;
+    var addsubjects = ViewBag.AddObjects;
+    var addsubjects_house = ViewBag.AddObjects_house;
+    var addsubjects_built_in_room = ViewBag.AddObjects_built_in_room;
+    var addsubjects_accompanying_construction = ViewBag.AddObjects_accompanying_construction;
+}
+@for (int i = 0; i < ViewBag.LengthSub; i++)
+{
+    for (int ii = 0; ii < lengthmas; ii++)
+    {
+        if (mas1[ii].NODE_TYPE_ID > 1 && mas1[ii].ID == subjects[i].ID)
+        {
+            nameindex = ii;
+            break;
+        }
+    }
+    <div class="invisible" id="@mas1[nameindex].UNION_ID">
+        <div class="inner">
+            <center class="header">@mas1[nameindex].NAME</center><br><br>
+            <span class='subheader'>Общая характеристика</span><br><br>
+            <table class="fortable">
+                <tr>
+                    <td class="textstyle"><span class="bold">Наименование: </span>@subjects[i].NAME</td>
+                    <td class="textstyle" width="33%"><span class="bold">Код: </span>@subjects[i].CODE</td>
+                    <td class="textstyle"><span class="bold">Тип субъекта: </span>@subjects[i].TYPE_SUB_OBJECT_NAME</td>
+                </tr>
+                <tr>
+                    <td class="textstyle"><span class="bold">Дата начала строительства: </span>@if (addsubjects[i].DATE_RECEIPT != null) { @addsubjects[i].DATE_RECEIPT.ToShortDateString() }</td>
+                    <td class="textstyle" colspan="2"><span class="bold">Дата окончания строительства: </span>@if (addsubjects[i].DATE_EXPIRY != null) { @addsubjects[i].DATE_EXPIRY.ToShortDateString() }</td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">Доп. соглашение: </span>@addsubjects[i].FULL_NAME</td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">Комментарий к доп. соглашению: </span><textarea class="textstyle rounded" style="width:97.5%; resize:none;" rows="5" name="text" readonly>@addsubjects[i].TEXT_COMMENT</textarea></td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">Типы источников финансирования: </span>@addsubjects[i].ALL_TYPE_SOUR_FIN</td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">Продолжительность строительсва по ПОС (в месяцах): </span>@subjects[i].CONSTRUCTION_PERIOD</td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">Разрешения ИДКиНС (№ : </span>@subjects[i].PERM_IDKNS_NUMBER<span class="bold">): </span></td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">1. На организацию строительной площадки: с </span>@if (subjects[i].PERM_BUILDING_SITE_DATE_RECEIPT != null) { @subjects[i].PERM_BUILDING_SITE_DATE_RECEIPT.ToShortDateString() }<span class="bold"> по </span>@if (subjects[i].PERM_BUILDING_SITE_EXPIRY_DATE != null) { @subjects[i].PERM_BUILDING_SITE_EXPIRY_DATE.ToShortDateString() }</td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">2. На СМР: с </span>@if (addsubjects[i].DATE_RECEIPT1 != null) { @addsubjects[i].DATE_RECEIPT1.ToShortDateString() }<span class="bold"> по </span>@if (addsubjects[i].DATE_EXPIRY1 != null) { @addsubjects[i].DATE_EXPIRY1.ToShortDateString() }<textarea class="textstyle rounded" style="width:97.5%; resize:none;" rows="5" name="text" readonly>@addsubjects[i].COMMENT</textarea></td>
+                </tr>
+                <tr>
+                    <td class="textstyle" colspan="3"><span class="bold">Дата введения в эксплуатацию: </span>@if (subjects[i].COMMISSIONIN_DATE != null) { @subjects[i].COMMISSIONIN_DATE.ToShortDateString() }<textarea class="textstyle rounded" style="width:97.5%; resize:none;" rows="5" name="text" readonly>@subjects[i].CAST</textarea></td>
+                </tr>
+                <tr>
+                    <td class="aboveline1 textstyle" colspan="3">
+                        <span class="bold">СМР полностью закончены:</span>
+                        <input @(subjects[i].ALL_SCH_WORK_IS_COMPLETE == 1 ? "checked" : "") class="forecheck" type="checkbox" onclick="window.event.returnValue=false" />
+                    </td>
+                </tr>
+                @if (subjects[i].TYPE_SUB_OBJECT_NAME == "Дом")
+                {
+                    <tr>
+                        <td>
+                            <br>
+                            <span class='subheader'>Характеристика для домов</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="textstyle"><br><span class="bold">Начало тех. пер.: </span>@if (addsubjects_house[i].BEGINNING_TECHNICAL_BREAK != null) { @addsubjects_house[i].BEGINNING_TECHNICAL_BREAK.ToShortDateString() }</td>
+                        <td class="textstyle"><span class="bold">Окончание тех. пер.: </span>@if (addsubjects_house[i].TERMINATION_TECHNICAL_BREAK != null) { @addsubjects_house[i].TERMINATION_TECHNICAL_BREAK.ToShortDateString() }</td>
+                        <td class="textstyle"><span class="bold">Серия: </span>@addsubjects_house[i].ALL_SERIES</td>
+                    </tr>
+                    <tr>
+                        <td class="textstyle"><span class="bold">Этажность: </span>@addsubjects_house[i].MAX_COUNT_FLOORS</td>
+                        <td class="textstyle"><span class="bold">Количество квартир: </span>@addsubjects_house[i].COUNT_APARTMENTS</td>
+                        <td class="textstyle"><span class="bold">Общая площадь квартир: </span>@addsubjects_house[i].TOTAL_AREA<span>м<sup>2</sup></span></td>
+                    </tr>
+                    <tr>
+                        <td class="textstyle"><span class="bold">Тип фундамента: </span>@addsubjects_house[i].NAME</td>
+                        <td class="textstyle"><span class="bold">Дата заселения: </span>@if (addsubjects_house[i].SETTLING_DATE != null) { @addsubjects_house[i].SETTLING_DATE.ToShortDateString() }</td>
+                    </tr>
+                }
+                @if (subjects[i].TYPE_SUB_OBJECT_NAME == "Встроенное помещение")
+                {
+                    <tr>
+                        <td colspan="2">
+                            <br>
+                            <span class='subheader'>Характеристика для встроенных помещений</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="textstyle"><br><span class="bold">Общая площадь: </span>@addsubjects_built_in_room[i].TOTAL_AREA<span>м<sup>2</sup></span></td>
+                        <td class="textstyle"><span class="bold">Тип фундамента: </span>@addsubjects_built_in_room[i].NAME</td>
+                    </tr>
+                    <tr>
+                        <td class="textstyle"><span class="bold">Входит в состав: </span>@addsubjects_built_in_room[i].HOUSE_NAME</td>
+                    </tr>
+                }
+                @if (subjects[i].TYPE_SUB_OBJECT_NAME == "Сопутствующая постройка")
+                {
+                    <tr>
+                        <td colspan="2">
+                            <br>
+                            <span class='subheader'>Характеристика для сопутствующих построек</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="textstyle"><br><span class="bold">Тип фундамента: </span>@addsubjects_accompanying_construction[i].NAME</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+@{
+    nameindex = 0;
+}
+@foreach (var b in masobjects)
+{
+    for (int ii = 0; ii < lengthmas; ii++)
+    {
+        if (mas1[ii].NODE_TYPE_ID == 1 && mas1[ii].ID == b.ID)
+        {
+            nameindex = ii;
+            break;
+        }
+    }
+    <div class="invisible" id="@mas1[nameindex].UNION_ID">
+        <div class="inner">
+            <center class="header">@mas1[nameindex].NAME</center><br><br><br>
+            <table class="fortable">
+                <tr>
+                    <td class="bold aboveline1 textstyle" width=25%>Полное имя: </td>
+                    <td class="aboveline1 textstyle">@b.FULL_NAME</td>
+                </tr>
+                <tr>
+                    <td class="bold aboveline1 textstyle">Заказчик: </td>
+                    <td class="aboveline1 textstyle">@b.CUSTOMER_NAME</td>
+                </tr>
+                <tr>
+                    <td class="bold aboveline1 textstyle">Номер договора: </td>
+                    <td class="aboveline1 textstyle">@b.CONTRACT_NUMBER</td>
+                </tr>
+                <tr>
+                    <td class="bold aboveline1 textstyle">Дата договора: </td>
+                    <td class="aboveline1 textstyle">@if (b.CONTRACT_DATE != null) {@b.CONTRACT_DATE.ToShortDateString()}</td>
+                </tr>
+                <tr>
+                    <td class="bold aboveline1 textstyle">Ген. подрядное управление по договору: </td>
+                    <td class="aboveline1 textstyle">@b.MANAGEMENT_NAME</td>
+                </tr>
+                <tr>
+                    <td class="bold textstyle">Комментарии: </td>
+                    <td class="textstyle">@b.COMMENT</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+
+<div class="main">
+    <div class="all">
+        <ul>
+            @create(ViewBag.Mas, counter, ViewBag.MaxLvl, ViewBag.Levels, null)
+        </ul>
+    </div>
+</div>

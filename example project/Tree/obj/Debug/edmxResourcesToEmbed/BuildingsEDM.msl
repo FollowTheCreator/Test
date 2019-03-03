@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="BUILT_IN_ROOM">
+      <EntityTypeMapping TypeName="Model.BUILT_IN_ROOM">
+        <MappingFragment StoreEntitySet="BUILT_IN_ROOM">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPE_BUILT_IN_ROOM_ID" ColumnName="TYPE_BUILT_IN_ROOM_ID" />
+          <ScalarProperty Name="TOTAL_AREA" ColumnName="TOTAL_AREA" />
+          <ScalarProperty Name="TYPE_FOUNDATION_ID" ColumnName="TYPE_FOUNDATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMER">
+      <EntityTypeMapping TypeName="Model.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOUSE">
+      <EntityTypeMapping TypeName="Model.HOUSE">
+        <MappingFragment StoreEntitySet="HOUSE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BEGINNING_TECHNICAL_BREAK" ColumnName="BEGINNING_TECHNICAL_BREAK" />
+          <ScalarProperty Name="TERMINATION_TECHNICAL_BREAK" ColumnName="TERMINATION_TECHNICAL_BREAK" />
+          <ScalarProperty Name="MAX_COUNT_FLOORS" ColumnName="MAX_COUNT_FLOORS" />
+          <ScalarProperty Name="COUNT_APARTMENTS" ColumnName="COUNT_APARTMENTS" />
+          <ScalarProperty Name="TOTAL_AREA" ColumnName="TOTAL_AREA" />
+          <ScalarProperty Name="TYPE_FOUNDATION_ID" ColumnName="TYPE_FOUNDATION_ID" />
+          <ScalarProperty Name="SETTLING_DATE" ColumnName="SETTLING_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MANAGEMENT">
+      <EntityTypeMapping TypeName="Model.MANAGEMENT">
+        <MappingFragment StoreEntitySet="MANAGEMENT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBJECT_CONSTRUCTION">
+      <EntityTypeMapping TypeName="Model.OBJECT_CONSTRUCTION">
+        <MappingFragment StoreEntitySet="OBJECT_CONSTRUCTION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MICRODISTRICT_ID" ColumnName="MICRODISTRICT_ID" />
+          <ScalarProperty Name="TYPE_OBJECT_CONSTRUCTION_ID" ColumnName="TYPE_OBJECT_CONSTRUCTION_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="CONTRACT_NUMBER" ColumnName="CONTRACT_NUMBER" />
+          <ScalarProperty Name="CONTRACT_DATE" ColumnName="CONTRACT_DATE" />
+          <ScalarProperty Name="CONTRACT_COMMENT" ColumnName="CONTRACT_COMMENT" />
+          <ScalarProperty Name="GEN_MANAGEMENT_ID" ColumnName="GEN_MANAGEMENT_ID" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+          <ScalarProperty Name="SCHEME_FILE_NAME" ColumnName="SCHEME_FILE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUALIFIER_OBJECT_CONSTRUCTION">
+      <EntityTypeMapping TypeName="Model.QUALIFIER_OBJECT_CONSTRUCTION">
+        <MappingFragment StoreEntitySet="QUALIFIER_OBJECT_CONSTRUCTION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PARENT_QUALIFIER_ID" ColumnName="PARENT_QUALIFIER_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUB_OBJECT">
+      <EntityTypeMapping TypeName="Model.SUB_OBJECT">
+        <MappingFragment StoreEntitySet="SUB_OBJECT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="CONSTRUCTION_NUMBER" ColumnName="CONSTRUCTION_NUMBER" />
+          <ScalarProperty Name="CONSTRUCTION_PERIOD" ColumnName="CONSTRUCTION_PERIOD" />
+          <ScalarProperty Name="ORDER_CONSTRUCTION_PERIOD" ColumnName="ORDER_CONSTRUCTION_PERIOD" />
+          <ScalarProperty Name="PERM_IDKNS_NUMBER" ColumnName="PERM_IDKNS_NUMBER" />
+          <ScalarProperty Name="PERM_BUILDING_SITE_DATE_RECEIPT" ColumnName="PERM_BUILDING_SITE_DATE_RECEIPT" />
+          <ScalarProperty Name="PERM_BUILDING_SITE_EXPIRY_DATE" ColumnName="PERM_BUILDING_SITE_EXPIRY_DATE" />
+          <ScalarProperty Name="COMMISSIONIN_DATE" ColumnName="COMMISSIONIN_DATE" />
+          <ScalarProperty Name="COMMIS_DATE_COMMENT" ColumnName="COMMIS_DATE_COMMENT" />
+          <ScalarProperty Name="ALL_SCH_WORK_IS_COMPLETE" ColumnName="ALL_SCH_WORK_IS_COMPLETE" />
+          <ScalarProperty Name="COST_ALL_WORKS" ColumnName="COST_ALL_WORKS" />
+          <ScalarProperty Name="COST_ALL_WORKS_PRICES_DATE" ColumnName="COST_ALL_WORKS_PRICES_DATE" />
+          <ScalarProperty Name="TERM_PAY_EXEC_WORKS" ColumnName="TERM_PAY_EXEC_WORKS" />
+          <ScalarProperty Name="TYPE_DAYS_ID" ColumnName="TYPE_DAYS_ID" />
+          <ScalarProperty Name="ADVANCE" ColumnName="ADVANCE" />
+          <ScalarProperty Name="ADVANCE_PAYMENT_TO" ColumnName="ADVANCE_PAYMENT_TO" />
+          <ScalarProperty Name="ADVANCE_PAYMENT_ICW" ColumnName="ADVANCE_PAYMENT_ICW" />
+          <ScalarProperty Name="PROTECTION_UPON" ColumnName="PROTECTION_UPON" />
+          <ScalarProperty Name="TYPE_SUB_OBJECT_ID" ColumnName="TYPE_SUB_OBJECT_ID" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_FOUNDATION">
+      <EntityTypeMapping TypeName="Model.TYPE_FOUNDATION">
+        <MappingFragment StoreEntitySet="TYPE_FOUNDATION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBJECT_CONSTRUCTION_TREE">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.OBJECT_CONSTRUCTION_TREE)">
+        <MappingFragment StoreEntitySet="OBJECT_CONSTRUCTION_TREE">
+          <ScalarProperty Name="HAVE_CHILDS" ColumnName="HAVE_CHILDS" />
+          <ScalarProperty Name="NODE_TYPE_NAME" ColumnName="NODE_TYPE_NAME" />
+          <ScalarProperty Name="NODE_TYPE_ID" ColumnName="NODE_TYPE_ID" />
+          <ScalarProperty Name="LVL" ColumnName="LVL" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PARENT_UNION_ID" ColumnName="PARENT_UNION_ID" />
+          <ScalarProperty Name="UNION_ID" ColumnName="UNION_ID" />
+          <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
